@@ -1,0 +1,12 @@
+{
+  "short_name": "WhatWorkWhen",
+  "name": "WhatWorkWhen",
+  "icons": [{
+    "src": "apple-touch-icon.png",
+    "type": "image/png",
+    "sizes": "877x877"
+  }],
+  "start_url": "/",
+  "background_color": "#F9FCF9",
+  "theme_color": "#42B983"
+}

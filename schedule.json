@@ -1,0 +1,40 @@
+{
+	"day": {
+		"start": "0800",
+		"end": "1700"
+	},
+	"tasks":[
+		{
+			"title": "News & Email",
+			"start": "0800"
+		},
+		{
+			"title": "Duolingo (DE)",
+			"start": "0900"
+		},
+		{
+			"title": "Coffee",
+			"start": "1000"
+		},
+		{
+			"title": "Personal Project Coding",
+			"start": "1005"
+		},
+		{
+			"title": "Lunch & Videos",
+			"start": "1200"
+		},
+		{
+			"title": "Duolingo (DE)",
+			"start": "1300"
+		},
+		{
+			"title": "Personal Project Coding",
+			"start": "1400"
+		},
+		{
+			"title": "Housework",
+			"start": "1630"
+		}
+	]
+}
