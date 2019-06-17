@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+	Mountain/\Ash -- Designer/Developer
+
+# THANKS
+
+	IDE: Panic Coda
+	Hosting: Netify
+	Versioning: GitHub
+
+# TECHNOLOGY COLOPHON
+
+	LESS, CSS3, HTML5, PNG
