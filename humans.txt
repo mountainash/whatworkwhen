@@ -8,9 +8,18 @@
 # THANKS
 
 	IDE: Panic Coda
-	Hosting: Netify
+	Hosting: Netify + cdnjs (Cloudflare)
 	Versioning: GitHub
+	Clock minute markers: https://codepen.io/zastrow/pen/GrbGbJ (cleaned up the code)
 
 # TECHNOLOGY COLOPHON
 
-	LESS, CSS3, HTML5, PNG
+	LESS, CSS3, HTML5, PNG, Javascript
+	jQuery
+	Moment.js
+
+# SOURCE FILES
+
+	Github: https://github.com/mountainash/whatworkwhen
+	JS: /script.js
+	CSS: /style.less

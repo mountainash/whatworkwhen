@@ -1,7 +1,9 @@
 // Call this file from footer
 
+var nexttask; // Moment timestamp for the start of the following task
+
 // Load in the tasks from a JSON file
-$.get('schedule.json', function(data) {
+$.getJSON('schedule.json', function(data) {
 
 	var dayend = data.day.end,
 		classname = '';
@@ -23,7 +25,7 @@ $.get('schedule.json', function(data) {
 
 		var taskstart = task.start,
 			splitstart = taskstart.split(/(\d{2})/),
-			mtaskstart = moment().hour(splitstart[1]).minute(splitstart[3]),
+			mtaskstart = moment().hour(splitstart[1]).minute(splitstart[3]).second(0),
 			taskend = dayend;
 
 		if (data.tasks[i+1]) {
@@ -58,7 +60,8 @@ $.get('schedule.json', function(data) {
 			.appendTo('#tasks ol');
 
 		if (classname == 'soon') {
-			$('#tasks li:last').append('<span class="info">Starts ' + mtaskstart.fromNow() + '</span>');
+			nexttask = mtaskstart;
+			$('#tasks li:last').append('<span id="info">Starts in ' + nexttask.fromNow(true) + '</span>');
 		}
 
 	});
@@ -66,23 +69,41 @@ $.get('schedule.json', function(data) {
 	// Remove the first [placeholder] task
 	$('#tasks li:first').remove();
 
-}, 'json');
+}).done(function() {
 
-// Taken from momentjs.com homepage
-function updateClock(){
+	// Init
+	secUpdate();
+
+});
+
+function updateClock() {
+	// Taken from momentjs.com homepage
     var now = moment(),
         second = now.seconds() * 6,
         minute = now.minutes() * 6 + second / 60,
         hour = ((now.hours() % 12) / 12) * 360 + 90 + minute / 12;
 
-    $('#hour').css("transform", "rotate(" + hour + "deg)");
-    $('#minute').css("transform", "rotate(" + minute + "deg)");
-    $('#second').css("transform", "rotate(" + second + "deg)");
+    $('#hour').css('transform', 'rotate(' + hour + 'deg)');
+    $('#minute').css('transform', 'rotate(' + minute + 'deg)');
+    $('#second').css('transform', 'rotate(' + second + 'deg)');
+
+	if (typeof nexttask =='undefined') return; // sometimes the JSON hasn't finished being parsed
+
+    if (now.seconds() == 0 || nexttask - now < 1 * 60 * 1000) { // on the minute start, and every call in the last minute
+	    minUpdate();
+    }
+
+    if (now >= nexttask) { // Check if the next task has started
+        location.reload(); // Quick and nasty...
+    }
 }
 
-function timedUpdate() {
+function minUpdate() {
+	$('#info').text('Starts in ' + nexttask.fromNow(true));
+}
+
+// Timers
+function secUpdate() {
     updateClock();
-    setTimeout(timedUpdate, 1000);
+    setTimeout(secUpdate, 1000);
 }
-
-timedUpdate();
