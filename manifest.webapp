@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "name": "WhatWorkWhen",
+  "launch_path": "/index.html",
+  "description": "Daily task list",
+  "icons": {
+    "128": "/apple-touch-icon-192x192.png"
+  },
+  "developer": {
+    "name": "RMW Web Publishing",
+    "url": "https://rmwpublishing.net/"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "WhatWorkWhen",
+      "description": "Daily task list"
+    }
+  }
+}

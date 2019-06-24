@@ -7,7 +7,9 @@
 <meta name="description" content="What you should be working on at what time. A Moment.js project with a user codable task schedule in a JSON file">
 <meta name="author" content="RMW Web Publishing">
 <link rel="canonical" href="https://whatworkwhen.netlify.com/">
-<meta name="theme-color" content="#F9FCF9">
+<meta name="theme-color" content="#42B983">
+<link rel="apple-touch-icon" href="apple-touch-icon-192x192.png">
+<link rel="apple-touch-startup-image" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="stylesheet" href="style.css">
 <!--
@@ -17,6 +19,21 @@ Mar 2019
 humans.txt supported
 
 -->
+<script>
+if ('serviceWorker' in navigator) {
+	if (navigator.serviceWorker.controller) {
+		console.log('Active service worker found, no need to register');
+	} else {
+		navigator.serviceWorker
+			.register('sw.js', {
+				scope: './'
+			})
+			.then(function(reg) {
+				console.log('Service Worker registered for scope: ' + reg.scope);
+			});
+	}
+}
+</script>
 </head>
 <body class="is-moment">
 	<div class="container">
