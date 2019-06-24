@@ -1,4 +1,4 @@
-/*! version 1.0.0 */
+/*! version 1.1.0 */
 
 // Variables
 @color-text: #2C3E50;
@@ -10,6 +10,7 @@
 	box-sizing: border-box;
 }
 body {
+	margin: 0;
 	background: #F9FCF9;
 	font-family: -apple-system, 'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -207,5 +208,13 @@ section {
 		height: auto;
 		padding-left: 5px;
 		border: 1px solid @color-indicators;
+	}
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #000;
+		filter: invert(.9);
 	}
 }
