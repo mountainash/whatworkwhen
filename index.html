@@ -7,10 +7,12 @@
 <meta name="description" content="What you should be working on at what time. A Moment.js project with a user codable task schedule in a JSON file">
 <meta name="author" content="RMW Web Publishing">
 <link rel="canonical" href="https://whatworkwhen.netlify.com/">
-<meta name="theme-color" content="#42B983">
 <link rel="apple-touch-icon" href="apple-touch-icon-192x192.png">
 <link rel="apple-touch-startup-image" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="What Work When">
 <link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#42B983">
 <link rel="stylesheet" href="style.css">
 <!--
 
@@ -19,10 +21,21 @@ Mar 2019
 humans.txt supported
 
 -->
+<meta property="og:title" content="What Work When">
+<meta property="og:type" content="website">
+<meta property="og:image" content="apple-touch-icon-192x192.png">
+<meta property="og:url" content="https://whatworkwhen.netlify.com/">
+<meta property="og:description" content="What you should be working on at what time. A Moment.js project with a user codable task schedule in a JSON file">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="https://whatworkwhen.netlify.com/">
+<meta name="twitter:title" content="What Work When">
+<meta name="twitter:description" content="What you should be working on at what time. A Moment.js project with a user codable task schedule in a JSON file">
+<meta name="twitter:image" content="apple-touch-icon-192x192.png">
+<meta name="twitter:creator" content="@paul_kinlan">
 <script>
 if ('serviceWorker' in navigator) {
 	if (navigator.serviceWorker.controller) {
-		console.log('Active service worker found, no need to register');
+		console.log('Active service worker already found, no need to register');
 	} else {
 		navigator.serviceWorker
 			.register('sw.js', {
@@ -49,11 +62,12 @@ if ('serviceWorker' in navigator) {
 		<section>
 
 			<div id="clock">
-				<div class="hero-circle">
-					<div class="hero-face">
-						<div id="hour" class="hero-hour"></div>
-						<div id="minute" class="hero-minute"></div>
-						<div id="second" class="hero-second"></div>
+				<div id="clock-circle">
+					<div id="clock-face">
+						<span id="clock-hour"></span><span id="clock-minute"></span><span id="clock-second"></span>
+					</div>
+					<div id="digital-face">
+						<span id="digital-hour">11</span><span id="digital-minute">45</span><span id="digital-second">27</span>
 					</div>
 				</div>
 			</div>
@@ -72,8 +86,8 @@ if ('serviceWorker' in navigator) {
 
 	</div><!-- .container -->
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	<script src="zepto.min.js"></script>
+	<script src="moment.min.js"></script>
 	<script src="script.min.js"></script>
 
 </body>

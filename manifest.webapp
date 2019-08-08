@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "WhatWorkWhen",
+  "name": "What Work When",
   "launch_path": "/index.html",
   "description": "Daily task list",
   "icons": {
@@ -18,7 +18,7 @@
   },
   "locales": {
     "en": {
-      "name": "WhatWorkWhen",
+      "name": "What Work When",
       "description": "Daily task list"
     }
   }
