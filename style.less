@@ -1,8 +1,8 @@
 // out: style.css, compress: true
 
-/*! version 1.2.0 */
+/*! version 1.2.2 */
 
-// Variables
+// LESS Variables
 @color-text: #2C3E50;
 @color-link: #577549;
 @color-clock: #42B983;
@@ -86,7 +86,19 @@ section {
 	width: 100%;
 	height: 100%;
 
+	span {
+		position: absolute;
+		z-index: 10;
+		top: 50%;
+		left: 50%;
+		width: 0;
+		height: 0;
+		background: @color-clock;
+		transform-origin: 50% 100%;
+	}
+
 	&:after {
+		/* the centre pin */
 		content: '';
 		display: block;
 		position: absolute;
@@ -100,45 +112,25 @@ section {
 	}
 }
 #clock-hour {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 0;
-	height: 0;
 	margin: -4px 0 -4px -25%;
 	padding: 4px 0 4px 25%;
-	background: @color-clock;
-	transform-origin: 100% 50%;
+	transform-origin: 100% 50% !important;
 	border-radius: 4px 0 0 4px;
 }
 #clock-minute {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 0;
-	height: 0;
 	margin: -40% -3px 0;
 	padding: 40% 3px 0;
-	background: @color-clock;
-	transform-origin: 50% 100%;
 	border-radius: 3px 3px 0 0;
 }
 #clock-second {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 0;
-	height: 0;
 	margin: -40% -1px 0 0;
 	padding: 40% 1px 0;
-	background: @color-clock;
-	transform-origin: 50% 100%;
 }
 #digital-face {
 	position: absolute;
 	opacity: .25;
 	left: 100px;
-	bottom: 27.5%;
+	bottom: 15%;
 	width: 200px;
 	font-family: 'Courier New', Courier, monospace;
 	font-size: 150%;
@@ -162,7 +154,7 @@ section {
 
 #tasks {
 	flex: 5;
-	font-size: 90%;
+	font-size: 85%;
 
 	ol {
 		display: flex;
@@ -224,6 +216,11 @@ section {
 		#clock-circle {
 			width: 200px;
 			height: 200px;
+		}
+		#digital-face {
+			width: 184px;
+			left: 0;
+			font-face: 105%;
 		}
 	}
 	#tasks li {
