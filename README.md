@@ -10,7 +10,9 @@ A simple personal project to plan out my day to get some structure back in my li
 
 `cd` to this dir and run:
 
-``$ python -m SimpleHTTPServer 3000``
+```sh
+python -m SimpleHTTPServer 3000
+```
 
 Then request <http://localhost:3000> in your web browser.
 
@@ -19,7 +21,7 @@ Then request <http://localhost:3000> in your web browser.
 - [x] Get on track (by getting off track making this...)
 - [x] Learn more [GitHub](https://github.com/)
 - [ ] Learn more about [Vue.js](https://vuejs.org/) and related frameworks
-- [x] Learn more about CD (using [Netify](https://www.netlify.com/))
+- [x] Learn more about CD (using [Netlify](https://www.netlify.com/))
 
 ## TODO
 
