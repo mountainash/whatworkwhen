@@ -1,6 +1,6 @@
 # Get Shit Done!
 
-A simple personal project to plan out my day to get some structure back in my life after a year off (traveling)
+A simple personal project to plan out my day to get some structure back in my life after a year off (travelling)
 
 <https://whatworkwhen.netlify.com/>
 
