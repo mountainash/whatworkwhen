@@ -1,14 +1,14 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "What Work When",
-  "launch_path": "/index.html",
+  "launch_path": "/index.html?ref=webappmanifest",
   "description": "Daily task list",
   "icons": {
     "128": "/apple-touch-icon-192x192.png"
   },
   "developer": {
-    "name": "RMW Web Publishing",
-    "url": "https://rmwpublishing.net/"
+    "name": "mountainash",
+    "url": "https://mountainash.id.au/"
   },
   "installs_allowed_from": [
     "*"
