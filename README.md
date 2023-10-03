@@ -8,20 +8,19 @@ A simple personal project to plan out my day to get some structure back in my li
 
 ## Run locally
 
-`cd` to this dir and run:
+`cd` to this directory and run:
 
 ```sh
-python -m SimpleHTTPServer 3000
+python3 -m http.server 3000 --bind 127.0.0.1
 ```
 
 Then request <http://localhost:3000> in your web browser.
 
 ## Goals
 
-- [x] Get on track (by getting off track making this...)
-- [x] Learn more [GitHub](https://github.com/)
-- [ ] Learn more about [Vue.js](https://vuejs.org/) and related frameworks
-- [x] Learn more about CD (using [Netlify](https://www.netlify.com/))
+- [x] get on track (by getting off-track making this project...)
+- [x] learn more [GitHub](https://github.com/)
+- [x] learn more about CI/CD (using [Netlify](https://www.netlify.com/))
 
 ## TODO
 
