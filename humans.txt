@@ -7,15 +7,15 @@
 
 # THANKS
 
-	IDE: Panic Coda
-	Hosting: Netify + cdnjs (Cloudflare)
+	IDE: Panic Coda & VSCode
+	Hosting: Netify
 	Versioning: GitHub
 	Clock minute markers: https://codepen.io/zastrow/pen/GrbGbJ (cleaned up the code)
 
 # TECHNOLOGY COLOPHON
 
 	LESS, CSS3, HTML5, PNG, Javascript
-	jQuery
+	Zepto.js
 	Moment.js
 
 # SOURCE FILES
