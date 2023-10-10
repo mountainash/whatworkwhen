@@ -1,8 +1,9 @@
 {
-	"start_url": "/?utm_source=a2hs",
+	"id": "whatworkwhen",
+	"start_url": "/?ref=webappmanifest",
 	"short_name": "WhatWorkWhen",
 	"name": "What Work When",
-	"description" : "Stay on task with this simple Moment.js clock and daily task list",
+	"description" : "Daily task list",
 	"icons": [{
 		"src": "apple-touch-icon-192x192.png",
 		"type": "image/png",
@@ -13,6 +14,7 @@
 		"sizes": "512x512"
 	}],
 	"background_color": "#F9FCF9",
+	"dark_theme": "true",
 	"theme_color": "#42B983",
 	"display": "standalone"
 }
