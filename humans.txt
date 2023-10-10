@@ -8,18 +8,18 @@
 # THANKS
 
 	IDE: Panic Coda & VSCode
-	Hosting: Netify
+	Hosting: Netlify
 	Versioning: GitHub
 	Clock minute markers: https://codepen.io/zastrow/pen/GrbGbJ (cleaned up the code)
 
 # TECHNOLOGY COLOPHON
 
-	LESS, CSS3, HTML5, PNG, Javascript
+	LESS, CSS3, HTML5, PNG, JavaScript
 	Cash.js
 	Moment.js
 
 # SOURCE FILES
 
-	Github: https://github.com/mountainash/whatworkwhen
+	GitHub: https://github.com/mountainash/whatworkwhen
 	JS: /script.js
 	CSS: /style.less
