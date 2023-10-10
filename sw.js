@@ -3,25 +3,24 @@ self.addEventListener('install', function(e) {
 		caches.open('whatworkwhere').then(function(cache) {
 			return cache.addAll([
 				'/',
-				'/manifest.webapp',
+				'/?ref=webappmanifest',
+				'/site.webmanifest',
 				'/favicon.ico',
 				'/index.html',
-				'/',
-				'/index.html',
 				'/style.css',
+				'/script.min.js',
 				'/cash.min.js',
 				'/moment.min.js',
-				'/script.min.js',
 				'/schedule.json'
 				]);
 		})
 	);
 });
 
-self.addEventListener('fetch', function(event) {
-	event.respondWith(
-		caches.match(event.request).then(function(response) {
-			return response || fetch(event.request);
+self.addEventListener('fetch', function(e) {
+	e.respondWith(
+		caches.match(e.request).then(function(response) {
+			return response || fetch(e.request);
 		})
 	);
 });
