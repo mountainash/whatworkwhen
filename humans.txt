@@ -15,7 +15,7 @@
 # TECHNOLOGY COLOPHON
 
 	LESS, CSS3, HTML5, PNG, Javascript
-	Zepto.js
+	Cash.js
 	Moment.js
 
 # SOURCE FILES

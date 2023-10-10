@@ -5,11 +5,14 @@
 var nexttask; // Moment timestamp for the start of the following task
 
 // Load in the tasks from a JSON file
-$.ajax({
-	async: false,
-	url: 'schedule.json',
-	dataType: 'json',
-	success: function(data) {
+fetch('schedule.json', {priority: 'high'})
+	.then((response) => {
+		if (!response.ok) {
+			throw new Error(`HTTP error, status = ${response.status}`);
+		}
+		return response.json();
+	})
+	.then((data) => {
 		var dayend = data.day.end,
 			classname = '';
 
@@ -80,11 +83,9 @@ $.ajax({
 		$('#tasks li').first().remove();
 
 		secUpdate();
-	}
-});
+	});
 
 function updateClock() {
-
 	// Taken from momentjs.com homepage
 	var now = moment(),
 		second = now.seconds() * 6,

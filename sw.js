@@ -6,10 +6,10 @@ self.addEventListener('install', function(e) {
 				'/manifest.webapp',
 				'/favicon.ico',
 				'/index.html',
-				'/?utm_source=a2hs',
-				'/index.html?utm_source=a2hs',
+				'/',
+				'/index.html',
 				'/style.css',
-				'/zepto.min.js',
+				'/cash.min.js',
 				'/moment.min.js',
 				'/script.min.js',
 				'/schedule.json'
