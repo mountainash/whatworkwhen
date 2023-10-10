@@ -5,35 +5,35 @@
 	},
 	"tasks":[
 		{
-			"title": "News & Email",
+			"title": "News & Email 🗞️",
 			"start": "0800"
 		},
 		{
-			"title": "Duolingo (DE)",
+			"title": "Duolingo 🇩🇪",
 			"start": "0900"
 		},
 		{
-			"title": "Coffee",
+			"title": "Coffee ☕️",
 			"start": "1000"
 		},
 		{
-			"title": "Personal Project Coding",
+			"title": "Personal Project Coding 🖥️",
 			"start": "1005"
 		},
 		{
-			"title": "Lunch & Videos",
+			"title": "Lunch 🍽️",
 			"start": "1200"
 		},
 		{
-			"title": "Duolingo (DE)",
+			"title": "Duolingo 🇩🇪",
 			"start": "1300"
 		},
 		{
-			"title": "Personal Project Coding",
+			"title": "Personal Project Coding 🖥️",
 			"start": "1400"
 		},
 		{
-			"title": "Housework",
+			"title": "Housework 🧹",
 			"start": "1630"
 		}
 	]
