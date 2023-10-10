@@ -10,11 +10,13 @@
 	IDE: Panic Coda & VSCode
 	Hosting: Netlify
 	Versioning: GitHub
+	Apple Touch Icons: Pixelmator Pro
+	Favicon: HiFavicon
 	Clock minute markers: https://codepen.io/zastrow/pen/GrbGbJ (cleaned up the code)
 
 # TECHNOLOGY COLOPHON
 
-	LESS, CSS3, HTML5, PNG, JavaScript
+	LESS, CSS3, HTML5, PNG, Favicon, JavaScript
 	Cash.js
 	Moment.js
 
