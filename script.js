@@ -1,8 +1,9 @@
 // out: script.min.js, compress: true
 
-// Call this file from footer
-
-var nexttask; // Moment timestamp for the start of the following task
+var nexttask = {
+	title: 'Day is over - go play! 🎉',
+	start: null, // Moment timestamp for the start of the following task
+};
 
 // Load in the tasks from a JSON file
 fetch('schedule.json', {priority: 'high'})
@@ -33,8 +34,7 @@ fetch('schedule.json', {priority: 'high'})
 			var taskstart = task.start,
 				splitstart = taskstart.split(/(\d{2})/), // break the task start time into hours and minutes
 				mtaskstart = moment().hour(splitstart[1]).minute(splitstart[3]).second(0),
-				taskend = dayend, // default to end of day
-				classname = '';
+				taskend = dayend; // default to end of day
 
 			if (data.tasks[i + 1]) {
 				// displayed end time is the start of the next task (it's easier to [human] read a whole hour rather than `-1 minute`. eg 10:00 not 9:59
@@ -42,39 +42,34 @@ fetch('schedule.json', {priority: 'high'})
 			}
 
 			var	splitend = taskend.split(/(\d{2})/),
-				mtaskend = moment().hour(splitend[1]).minute(splitend[3]);
+				mtaskend = moment().hour(splitend[1]).minute(splitend[3]).second(0);
+
+			nexttask.start = mtaskend; // default to end of day
 
 			if ( moment().isBetween(mtaskstart, mtaskend) ) {
 				classname = 'now';
 			} else if (classname == 'now') {
 				classname = 'soon';
+			} else {
+				classname = 'later'; // never used
 			}
 
 			// Output each task
 			var $_placeholder = $('#tasks li').first().clone();
 
-			$_placeholder
-				.find('.name')
-				.text(task.title)
-
-			$_placeholder
-				.find('.stime')
-				.text(taskstart)
-
-			$_placeholder
-				.find('.etime')
-				.text(taskend)
-
-			$_placeholder
-				.addClass(classname)
-				.appendTo('#tasks ol');
+			$('.name', $_placeholder).text(task.title);
+			$('.stime', $_placeholder).text(taskstart);
+			$('.etime', $_placeholder).text(taskend);
 
 			if (classname === 'soon') {
 				nexttask = task;
 				nexttask.start = mtaskstart; // set the start time to a "moment" time
-				$('#tasks li').last().append(`<span id="info">Starts in ${nexttask.start.fromNow(true)}</span>`);
+				$_placeholder.append(`<span id="info">Starts in ${nexttask.start.fromNow(true)}</span>`);
 			}
 
+			$_placeholder
+				.addClass(classname)
+				.appendTo('#tasks ol');
 		});
 
 		// Remove the first [placeholder] task
@@ -103,7 +98,6 @@ function updateClock() {
 	}
 
 	if (now >= nexttask.start) { // Check if the next task has started
-
 		if ('Notification' in window) {
 			var text = `Start ${nexttask.title}`,
 				img = 'apple-touch-icon.png';
@@ -114,10 +108,9 @@ function updateClock() {
 			} catch (err) {
 				alert(text);
 			}
-
 		}
 
-		location.reload(); // Quick and nasty...
+		location.reload(); // Quick and nasty, but refreshes the schedule [when can be changed]...
 	}
 }
 
