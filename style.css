@@ -1,4 +1,4 @@
-/*! version 2.0.1 */
+/*! version 2.0.2 */
 
 :root {
 	color-scheme: light dark;
@@ -71,13 +71,14 @@ section {
 	flex: 1;
 	width: 200px;
 	height: 400px;
+	text-align: center;
 }
 
 #clock-circle {
 	position: relative;
 	box-sizing: border-box;
 	width: 400px;
-	height: 400px;
+	height: 100%;
 	margin: 0 auto;
 	background:
 		radial-gradient(50% 50%, var(--color-clock-background) 175px, transparent 175px, transparent 185px, var(--color-clock-background) 185px),
@@ -93,9 +94,6 @@ section {
 	box-shadow: inset 0 1px 8px var(--color-indicators-shadow);
 }
 #clock-face {
-	width: 100%;
-	height: 100%;
-
 	& span {
 		position: absolute;
 		z-index: 10;
@@ -139,12 +137,10 @@ section {
 #digital-face {
 	position: absolute;
 	opacity: .25;
-	left: 100px;
 	bottom: 15%;
-	width: 200px;
+	width: 100%;
 	font-family: 'Courier New', Courier, monospace;
 	font-size: 150%;
-	text-align: center;
 	color: var(--color-clock-digital);
 
 	& span {
@@ -217,18 +213,14 @@ section {
 		transform: scale(1);
 	}
 	#clock {
-		text-align: center;
 		width: 100%;
 		height: 200px;
 		margin-bottom: 1em;
 	}
 	#clock-circle {
 		width: 200px;
-		height: 200px;
 	}
 	#digital-face {
-		width: 184px;
-		left: 0;
 		font-size: 105%;
 	}
 	#tasks li {
