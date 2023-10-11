@@ -16,7 +16,7 @@
 
 # TECHNOLOGY COLOPHON
 
-	LESS, CSS3, HTML5, PNG, Favicon, JavaScript
+	CSS3, HTML5, PNG, Favicon, JavaScript
 	Cash.js
 	Moment.js
 
@@ -24,4 +24,3 @@
 
 	GitHub: https://github.com/mountainash/whatworkwhen
 	JS: /script.js
-	CSS: /style.less
