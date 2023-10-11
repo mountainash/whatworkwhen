@@ -20,12 +20,12 @@ fetch('schedule.json', {priority: 'high'})
 
 			// Validate json start time is 4 numerals
 			if (! /\d{4}/.test(task.start) ) {
-				console.error('Task ' + i + ' can only be 4 digits. "' + task.start +'" is not allowed');
+				console.error(`Task ${i} can only be 4 digits. "${task.start}" is not allowed`);
 				return false;
 			}
 			// Validate it's a 24 hr time format
 			if ( parseInt(task.start) < 0 || parseInt(task.start) > 2400 ) {
-				console.error('Task ' + i + ' is not a valid 24 hour time. "' + task.start +'" is not allowed');
+				console.error(`Task ${i} is not a valid 24 hour time. "${task.start}" is not allowed`);
 				return false;
 			}
 
@@ -74,7 +74,7 @@ fetch('schedule.json', {priority: 'high'})
 			if (classname == 'soon') {
 				nexttask = task;
 				nexttask.start = mtaskstart; // set the start time to a "moment" time
-				$('#tasks li').last().append('<span id="info">Starts in ' + nexttask.start.fromNow(true) + '</span>');
+				$('#tasks li').last().append(`<span id="info">Starts in ${nexttask.start.fromNow(true)}</span>`);
 			}
 
 		});
@@ -96,11 +96,9 @@ function updateClock() {
 		$('#clock-minute').css('transform', 'rotate(' + minute + 'deg)');
 		$('#clock-second').css('transform', 'rotate(' + second + 'deg)');
 
-		$('#digital-hour').text(('0' + now.hours()).slice(-2));
-		$('#digital-minute').text(('0' + now.minutes()).slice(-2));
-		$('#digital-second').text(('0' + now.seconds()).slice(-2));
-
-	if (typeof nexttask =='undefined') return; // sometimes the JSON hasn't finished being parsed
+		$('#digital-hour').text((`0${now.hours()}`).slice(-2));
+		$('#digital-minute').text((`0${now.minutes()}`).slice(-2));
+		$('#digital-second').text((`0${now.seconds()}`).slice(-2));
 
 	if (now.seconds() == 0 || nexttask.start - now < 1 * 60 * 1000) { // on the minute start, and every call in the last minute
 		minUpdate();
@@ -126,7 +124,7 @@ function updateClock() {
 }
 
 function minUpdate() {
-	$('#info').text('Starts in ' + nexttask.start.fromNow(true));
+	$('#info').text(`Starts in ${nexttask.start.fromNow(true)}`);
 }
 
 // Timers
@@ -136,11 +134,11 @@ function secUpdate() {
 }
 
 function requestPermission() {
-	if (!'Notification' in window) {
-		console.log('Local Notifications not supported!');
+	if (!('Notification' in window)) {
+		console.warn('Local Notifications not supported!');
 	} else {
-		Notification.requestPermission(function() {
-			console.info('Local Notifications ' + Notification.permission)
+		Notification.requestPermission().then(function(permission) {
+			console.info(`Local Notifications: ${permission}`);
 		});
 	}
 }
