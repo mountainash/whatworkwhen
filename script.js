@@ -17,7 +17,6 @@ fetch('schedule.json', {priority: 'high'})
 			classname = '';
 
 		$.each(data.tasks, function(i, task) {
-
 			// Validate json start time is 4 numerals
 			if (! /\d{4}/.test(task.start) ) {
 				console.error(`Task ${i} can only be 4 digits. "${task.start}" is not allowed`);
@@ -34,7 +33,8 @@ fetch('schedule.json', {priority: 'high'})
 			var taskstart = task.start,
 				splitstart = taskstart.split(/(\d{2})/), // break the task start time into hours and minutes
 				mtaskstart = moment().hour(splitstart[1]).minute(splitstart[3]).second(0),
-				taskend = dayend; // default to end of day
+				taskend = dayend, // default to end of day
+				classname = '';
 
 			if (data.tasks[i + 1]) {
 				// displayed end time is the start of the next task (it's easier to [human] read a whole hour rather than `-1 minute`. eg 10:00 not 9:59
@@ -48,8 +48,6 @@ fetch('schedule.json', {priority: 'high'})
 				classname = 'now';
 			} else if (classname == 'now') {
 				classname = 'soon';
-			} else {
-				classname = '';
 			}
 
 			// Output each task
@@ -71,7 +69,7 @@ fetch('schedule.json', {priority: 'high'})
 				.addClass(classname)
 				.appendTo('#tasks ol');
 
-			if (classname == 'soon') {
+			if (classname === 'soon') {
 				nexttask = task;
 				nexttask.start = mtaskstart; // set the start time to a "moment" time
 				$('#tasks li').last().append(`<span id="info">Starts in ${nexttask.start.fromNow(true)}</span>`);
@@ -92,9 +90,9 @@ function updateClock() {
 		minute = now.minutes() * 6 + second / 60,
 		hour = ((now.hours() % 12) / 12) * 360 + 90 + minute / 12;
 
-		$('#clock-hour').css('transform', 'rotate(' + hour + 'deg)');
-		$('#clock-minute').css('transform', 'rotate(' + minute + 'deg)');
-		$('#clock-second').css('transform', 'rotate(' + second + 'deg)');
+		$('#clock-hour').css('transform', `rotate(${hour}deg)`);
+		$('#clock-minute').css('transform', `rotate(${minute}deg)`);
+		$('#clock-second').css('transform', `rotate(${second}deg)`);
 
 		$('#digital-hour').text((`0${now.hours()}`).slice(-2));
 		$('#digital-minute').text((`0${now.minutes()}`).slice(-2));
@@ -107,7 +105,7 @@ function updateClock() {
 	if (now >= nexttask.start) { // Check if the next task has started
 
 		if ('Notification' in window) {
-			var text = 'Start ' + nexttask.title,
+			var text = `Start ${nexttask.title}`,
 				img = 'apple-touch-icon.png';
 
 			try {
