@@ -3,7 +3,7 @@
 	"start_url": "/?ref=webappmanifest",
 	"short_name": "WhatWorkWhen",
 	"name": "What Work When",
-	"description" : "Daily task list",
+	"description": "Daily task list",
 	"icons": [{
 		"src": "apple-touch-icon-192x192.png",
 		"type": "image/png",
