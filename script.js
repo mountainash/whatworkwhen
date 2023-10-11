@@ -124,6 +124,7 @@ function secUpdate() {
 	setTimeout(secUpdate, 1000);
 }
 
+// Notifications
 function requestPermission() {
 	if (!('Notification' in window)) {
 		console.warn('Local Notifications not supported!');
@@ -132,6 +133,15 @@ function requestPermission() {
 			console.info(`Local Notifications: ${permission}`);
 		});
 	}
+	$('#activate-notifications').hide();
+}
+
+// If the url ends with ?ref=webappmanifest, show the install prompt
+if (window.location.search === '?ref=webappmanifest' && ('Notification' in window) ) {
+	$('#activate-notifications').show().on('click', function() {
+			requestPermission();
+			return false;
+		});
 }
 
 requestPermission();

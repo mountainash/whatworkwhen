@@ -3,22 +3,21 @@
 <head>
 <meta charset="utf-8">
 <title>What Work When</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="What you should be working on at what time. A project with a user codable task schedule in a JSON file">
 <meta name="author" content="humans.txt">
+<link rel="stylesheet" href="/style.css">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="canonical" href="https://whatworkwhen.netlify.com/">
 <link rel="apple-touch-icon" href="/apple-touch-icon-192x192.png">
 <link rel="apple-touch-startup-image" href="/apple-touch-icon.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="application-name" content="What Work When">
-<link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#26A69A">
-<link rel="stylesheet" href="/style.css">
 <!--
 
 Site handcoded by R Walker
 Mar 2019
-humans.txt supported
 
 -->
 <meta property="og:title" content="What Work When">
@@ -48,11 +47,13 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 </head>
-<body class="is-moment">
+<body>
 	<main>
 
 		<header>
 			<h1>What Work When</h1>
+
+			<a href="#" role="button" id="activate-notifications" title="Enable Notifications">🔔</a>
 		</header>
 
 		<aside id="instructions">

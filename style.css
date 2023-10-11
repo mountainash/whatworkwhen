@@ -1,4 +1,4 @@
-/*! version 2.0.2 */
+/*! version 2.1.0 */
 
 :root {
 	color-scheme: light dark;
@@ -67,13 +67,26 @@ section {
 	flex-flow: row wrap;
 }
 
+#activate-notifications {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 1em;
+	font-size: 150%;
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
 #clock {
 	flex: 1;
 	width: 200px;
 	height: 400px;
 	text-align: center;
 }
-
 #clock-circle {
 	position: relative;
 	box-sizing: border-box;
