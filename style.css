@@ -1,15 +1,38 @@
-/*! version 2.0.0 */
+/*! version 2.1.0 */
 
 :root {
+	color-scheme: light dark;
+	--color-background: #F9FCF9;
 	--color-text: #2C3E50;
 	--color-link: #577549;
 	--color-clock: #26A69A;
+	--color-clock-background: #FFF;
+	--color-clock-digital: #000;
+	--color-soon: #F3F5F7;
 	--color-indicators: #F3F6F8;
+	--color-indicators-shadow: rgba(34, 34, 34, .3);
+	--color-warning: #FFC4C4;
 }
 
-html {
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-background: #000;
+		--color-text: #D4BFF9;
+		--color-link: #B794F6;
+		--color-clock: #5C00D2;
+		--color-clock-background: #220B3F;
+		--color-clock-digital: #D4BFF9;
+		--color-soon: #7E3FF2;
+		--color-indicators: #212CA0;
+		--color-indicators-shadow: none;
+		--color-warning: #991A1A;
+	}
+}
+
+body {
 	margin: 0;
-	background: #F9FCF9;
+	background: var(--color-background);
 	font-family: system-ui, 'Helvetica Neue', sans-serif;
 	color: var(--color-text);
 }
@@ -32,7 +55,7 @@ aside {
 	left: 0;
 	right: 0;
 	padding: 1em;
-	background: #FFC4C4;
+	background: var(--color-warning);
 	text-align: center;
 }
 section {
@@ -58,17 +81,17 @@ section {
 	height: 400px;
 	margin: 0 auto;
 	background:
-		radial-gradient(50% 50%, white 175px, transparent 175px, transparent 185px, white 185px),
+		radial-gradient(50% 50%, var(--color-clock-background) 175px, transparent 175px, transparent 185px, var(--color-clock-background) 185px),
 		linear-gradient(0deg, transparent 49%, var(--color-indicators) 49%, var(--color-indicators) 51%, transparent 51%) center center,
 		linear-gradient(90deg, transparent 49%, var(--color-indicators) 49%, var(--color-indicators) 51%, transparent 51%) center center,
 		linear-gradient(30deg, transparent 49.5%, var(--color-indicators) 49.5%, var(--color-indicators) 50.5%, transparent 50.5%) center center,
 		linear-gradient(60deg, transparent 49.5%, var(--color-indicators) 49.5%, var(--color-indicators) 50.5%, transparent 50.5%) center center,
 		linear-gradient(120deg, transparent 49.5%, var(--color-indicators) 49.5%, var(--color-indicators) 50.5%, transparent 50.5%) center center,
 		linear-gradient(150deg, transparent 49.5%, var(--color-indicators) 49.5%, var(--color-indicators) 50.5%, transparent 50.5%) center center,
-		white;
+		var(--color-clock-background);
 	border: 8px solid var(--color-clock);
 	border-radius: 50%;
-	box-shadow: inset 0 1px 8px rgba(34, 34, 34, .3);
+	box-shadow: inset 0 1px 8px var(--color-indicators-shadow);
 }
 #clock-face {
 	width: 100%;
@@ -123,6 +146,7 @@ section {
 	font-family: 'Courier New', Courier, monospace;
 	font-size: 150%;
 	text-align: center;
+	color: var(--color-clock-digital);
 
 	& span {
 		display: inline-block;
@@ -169,7 +193,7 @@ section {
 		color: #FFF;
 	}
 	& .soon {
-		background: #f3f5f7;
+		background: var(--color-soon);
 	}
 }
 #info {
@@ -212,13 +236,5 @@ section {
 		height: auto;
 		padding-left: 5px;
 		border: 1px solid var(--color-indicators);
-	}
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-	body {
-		background: #000;
-		filter: invert(.9);
 	}
 }
