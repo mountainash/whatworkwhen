@@ -32,8 +32,7 @@ fetch('schedule.json', {priority: 'high'})
 			$('#instructions').remove(); // seems to be working
 
 			var taskstart = task.start,
-				splitstart = taskstart.split(/(\d{2})/), // break the task start time into hours and minutes
-				mtaskstart = moment().hour(splitstart[1]).minute(splitstart[3]).second(0),
+				mtaskstart = moment(taskstart, 'hhmm'),
 				taskend = dayend; // default to end of day
 
 			if (data.tasks[i + 1]) {
@@ -41,8 +40,7 @@ fetch('schedule.json', {priority: 'high'})
 				taskend = data.tasks[i + 1].start;
 			}
 
-			var	splitend = taskend.split(/(\d{2})/),
-				mtaskend = moment().hour(splitend[1]).minute(splitend[3]).second(0);
+			var	mtaskend = moment(taskend, 'hhmm');
 
 			nexttask.start = mtaskend; // default to end of day
 
