@@ -1,8 +1,12 @@
 // out: script.min.js, compress: true
 
+// Set to show a countdown in human seconds readable format
+moment.relativeTimeThreshold('s', 60);
+moment.relativeTimeThreshold('ss', 2);
+
 var nexttask = {
 	title: 'Day is over - go play! 🎉',
-	start: null, // Moment timestamp for the start of the following task
+	start: moment(2400, 'hhmm'), // Moment timestamp for the start of the following task
 };
 
 // Load in the tasks from a JSON file
@@ -29,8 +33,6 @@ fetch('schedule.json', {priority: 'high'})
 				return false;
 			}
 
-			$('#instructions').remove(); // seems to be working
-
 			var taskstart = task.start,
 				mtaskstart = moment(taskstart, 'hhmm'),
 				taskend = dayend; // default to end of day
@@ -40,11 +42,7 @@ fetch('schedule.json', {priority: 'high'})
 				taskend = data.tasks[i + 1].start;
 			}
 
-			var	mtaskend = moment(taskend, 'hhmm');
-
-			nexttask.start = mtaskend; // default to end of day
-
-			if ( moment().isBetween(mtaskstart, mtaskend) ) {
+			if ( moment().isBetween(mtaskstart, moment(taskend, 'hhmm')) ) {
 				classname = 'now';
 			} else if (classname == 'now') {
 				classname = 'soon';
@@ -53,7 +51,7 @@ fetch('schedule.json', {priority: 'high'})
 			}
 
 			// Output each task
-			var $_placeholder = $('#tasks li').first().clone();
+			var $_placeholder = $('#tasks li:first-child').clone();
 
 			$('.name', $_placeholder).text(task.title);
 			$('.stime', $_placeholder).text(taskstart);
@@ -70,8 +68,7 @@ fetch('schedule.json', {priority: 'high'})
 				.appendTo('#tasks ol');
 		});
 
-		// Remove the first [placeholder] task
-		$('#tasks li').first().remove();
+		$('#instructions,#tasks li:first-child').remove(); // seems to be working, remove the first [placeholder] task
 
 		secUpdate();
 	});
@@ -91,11 +88,11 @@ function updateClock() {
 		$('#digital-minute').text((`0${now.minutes()}`).slice(-2));
 		$('#digital-second').text((`0${now.seconds()}`).slice(-2));
 
-	if (now.seconds() == 0 || nexttask.start - now < 1 * 60 * 1000) { // on the minute start, and every call in the last minute
-		minUpdate();
+	if (now.seconds() == 0 || nexttask.start.diff(now) < 1 * 60 * 1000) { // on the minute start, and every call in the last minute of the task
+		$('#info').text(`Starts in ${nexttask.start.toNow(true)}`);
 	}
 
-	if (now >= nexttask.start) { // Check if the next task has started
+	if (now.isSameOrAfter(nexttask.start)) { // Check if the next task has started
 		if ('Notification' in window) {
 			var text = `Start ${nexttask.title}`,
 				img = 'apple-touch-icon.png';
@@ -110,10 +107,6 @@ function updateClock() {
 
 		location.reload(); // Quick and nasty, but refreshes the schedule [when can be changed]...
 	}
-}
-
-function minUpdate() {
-	$('#info').text(`Starts in ${nexttask.start.fromNow(true)}`);
 }
 
 // Timers
