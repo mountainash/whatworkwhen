@@ -17,5 +17,19 @@
 	"dark_theme": "true",
 	"theme_color": "#F9FCF9",
 	"display_override": ["fullscreen", "minimal-ui"],
-	"display": "standalone"
+	"display": "standalone",
+	"screenshots": [
+		{
+			"src": "/sample/screenshot-narrow.png",
+			"type": "image/png",
+			"sizes": "720x1337",
+			"form_factor": "narrow"
+		},
+		{
+			"src": "/sample/screenshot-wide.png",
+			"type": "image/png",
+			"sizes": "720x540",
+			"form_factor": "wide"
+		}
+	  ]
 }
