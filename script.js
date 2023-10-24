@@ -127,6 +127,8 @@ function requestPermission() {
 	$('#activate-notifications').hide();
 }
 
+requestPermission();
+
 // If the url ends with ?ref=webappmanifest, show the install prompt
 if (window.location.search === '?ref=webappmanifest' && ('Notification' in window) ) {
 	$('#activate-notifications').show().on('click', function() {
@@ -134,5 +136,3 @@ if (window.location.search === '?ref=webappmanifest' && ('Notification' in windo
 			return false;
 		});
 }
-
-requestPermission();
