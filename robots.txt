@@ -1,3 +1,3 @@
 # robots.txt for WhatWorkWhere
 
-Sitemap: https://whatworkwhen.netlify.com/sitemap.xml
+Sitemap: https://whatworkwhen.netlify.app/sitemap.xml

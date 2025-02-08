@@ -2,7 +2,7 @@
 
 A simple personal project to plan out my day to get some structure back in my life after a year off (travelling)
 
-<https://whatworkwhen.netlify.com/>
+<https://whatworkwhen.netlify.app/>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/526f143e-7205-4e67-9cc9-a145fc3dba09/deploy-status)](https://app.netlify.com/sites/whatworkwhen/deploys)
 
